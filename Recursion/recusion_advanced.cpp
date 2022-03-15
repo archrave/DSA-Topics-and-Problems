@@ -117,11 +117,47 @@ void printPermutations(char str[], int i = 0) // Taking default argument
     }
 }
 
+// Find the number of ways we can reach n from 0, using 1,2 or 3 steps at a time aka staircase problem.
+
+void staircase(int n, int &cnt)
+{
+    if (n == 0)
+    {
+        cnt++;
+        return;
+    }
+    for (int j = 1; j <= 3 && n >= j; j++)
+    {
+        staircase(n - j, cnt);
+    }
+}
+
+int staircase2(int n)
+{
+    if (n == 0 || n == 1)
+        return 1;
+    if (n < 0)
+        return 0;
+    if (n == 2)
+        return 2;
+    return staircase2(n - 1) + staircase2(n - 2) + staircase2(n - 3);
+}
+
+int towersOfHanoi(int n)
+{
+    if (n == 1)
+        return 1;
+    return 2 * towersOfHanoi(n - 1) + 1;
+}
+
 int main()
 {
-    char s[40] = "ABC";
-    printPermutations(s);
-    // string number = "9043";
-    // cout << convert(number) + 1;
+    // char s[40] = "ABC";
+    // printPermutations(s);
+    int n = 5, count = 0;
+    // staircase(n, count);
+    // cout << count << endl;
+    // cout << staircase2(n);
+    cout << towersOfHanoi(4);
     return 0;
 }
