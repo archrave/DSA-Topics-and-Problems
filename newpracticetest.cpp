@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
     string str = "";
@@ -21,7 +22,9 @@ int main()
     // cout << sizeof(l) << endl;
     // cout << sizeof(ll) << endl;
     // cout << sizeof(str) << endl;
-    a = -2;
-    cout << a / 2;
-    cout << str << endl;
+    cout << sumToSix();
+    // a = -2;
+    // cout << a / 2;
+    // cout << str << endl;
+    return 0;
 }
