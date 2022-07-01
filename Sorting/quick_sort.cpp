@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int partition(int a[], int s, int e)
@@ -65,13 +65,13 @@ void quickSort(int a[], int s, int e)
 int main()
 {
     int n = 6;
-    int a[7] = {8, 5, 2, 1, 7, 3, 4};
+    int a[7] = { 8, 5, 2, 1, 7, 3, 4 };
     // int a[2] = {2, 1};
     // n = 1;
     quickSort(a, 0, n);
     cout << partition(a, 0, n);
     cout << endl
-         << endl;
+        << endl;
     for (int i = 0; i <= n; i++)
     {
         cout << a[i] << " ";

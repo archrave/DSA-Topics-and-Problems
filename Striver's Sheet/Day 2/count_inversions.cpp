@@ -1,8 +1,9 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-void merge(int a[], int s, int mid, int e)
-{
+int countAndMerge(int a[], int s, int mid, int e) {
+    int count = 0;
+
     // cout << "\n\ns, mid, e: " << s << " " << mid << " " << e;
     int n1 = mid + 1 - s, n2 = e - mid, curr = 0;
     int* a1 = new int[n1];
@@ -27,6 +28,7 @@ void merge(int a[], int s, int mid, int e)
         else {
             a[curr] = a2[j];
             j++;
+            count += n1 - i;
         }
         curr++;
     }
@@ -40,33 +42,29 @@ void merge(int a[], int s, int mid, int e)
         j++;
         curr++;
     }
+    return count;
 }
 
-void mergeSort(int a[], int s, int e)
-{
-    if (s >= e)
-    {
-        return;
+int countInversions(int arr[], int s, int e) {
+    if (s >= e) {
+        return 0;
     }
-    int mid = s + (e - s) / 2;
+    int count = 0, mid = (e - s) / 2 + s;
+    int a = countInversions(arr, s, mid);
+    int b = countInversions(arr, mid + 1, e);
+    count = a + b + countAndMerge(arr, s, mid, e);
+    // count = a + b + merge(arr, s, mid, e);
 
-    mergeSort(a, s, mid);
-    mergeSort(a, mid + 1, e);
-    merge(a, s, mid, e);
+    return count;
 }
 
 int main()
 {
-    // int a[] = { 4, 1 };
-    int a[] = { 4, 1, 6, 2, 5, 3, 7 };
-    int s = 0, e = 6;
-    // int s = 0, e = 1;
-    mergeSort(a, s, e);
-    cout << "\nFINAL ARRAY: ";
-    for (int i = s; i <= e; i++)
-    {
-        cout << a[i] << " ";
-    }
-    cout << endl;
+    int arr[] = { 4,3,2,1,5 };
+    int s = 0;
+    int e = 4;
+    int* temp = new int[e + 1];
+    // cout << countInversions(arr, s, e) << endl;
+    cout << merge_Sort(arr, temp, s, e);
     return 0;
 }
