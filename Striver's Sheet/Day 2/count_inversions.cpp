@@ -60,11 +60,13 @@ int countInversions(int arr[], int s, int e) {
 
 int main()
 {
-    int arr[] = { 4,3,2,1,5 };
-    int s = 0;
-    int e = 4;
+    // int arr[] = { 4,3,2,1,5 };
+    // int arr[] = { 4,5,6,7,1,2,3 };
+    int arr[] = { 1,3,2,3,1 };
+    // int s = 0, e = 6;
+    int s = 0, e = 4;
     int* temp = new int[e + 1];
-    // cout << countInversions(arr, s, e) << endl;
-    cout << merge_Sort(arr, temp, s, e);
+    cout << countInversions(arr, s, e) << endl;
+    // cout << merge_Sort(arr, temp, s, e);
     return 0;
 }
