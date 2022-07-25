@@ -1,17 +1,17 @@
 #include <iostream>
-#include <vector>
+#pragma(1)
 using namespace std;
 
+struct test
+{
+    int i;
+    char j;
+};
 int main()
 {
-    float f = 0.2;
-    if (f == 0.2)
-        printf("it's geek time");
-    else if (f < 0.2)
-        printf("it's party time");
-    else
-        printf("it's movie time");
-
-    cout << f;
+    int n = 2;
+    int nums(123);
+    cout << sizeof(test);
     return 0;
 }
+
