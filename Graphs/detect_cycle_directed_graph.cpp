@@ -20,30 +20,25 @@ bool detectCycleBFS(vector<int> adj[], int n) {
             q.push(i);
     }
     int cnt = 0;
-    // cout << endl;
     while (!q.empty()) {
         int node = q.front();
         cnt++;
-        // cout << "node: " << node << " ; cnt: " << cnt << endl;
         q.pop();
         for (auto it : adj[node]) {
             indegree[it]--;
             if (indegree[it] == 0)   q.push(it);
         }
     }
-    // cout << "\ncnt: " << cnt << endl;
     if (cnt == n)    return false;
     else    return true;
 
 }
 bool cycleDFS(vector<int> adj[], vector<int>& vis, vector<int>& dfsVis, int node) {
+    vis[node] = 1;
+    dfsVis[node] = 1;
     for (auto it : adj[node]) {
         if (!vis[it]) {
-            vis[it] = 1;
-            dfsVis[it] = 1;
-            if (!cycleDFS(adj, vis, dfsVis, it))
-                dfsVis[it] = 0;
-            else
+            if (cycleDFS(adj, vis, dfsVis, it))
                 return true;
         }
         else if (dfsVis[it] == 1) {
@@ -58,8 +53,6 @@ bool detectCycleDFS(vector<int> adj[], int n) {
     vector<int> vis(n + 1, 0), dfsVis(n + 1, 0);
     for (int i = 1; i <= n; i++) {
         if (vis[i] == 0) {
-            vis[i] = 1;
-            dfsVis[i] = 1;
             if (cycleDFS(adj, vis, dfsVis, i))  return true;
         }
     }
@@ -100,7 +93,6 @@ int main() {
 }
 
 /*
-
 9 10
 1 2
 2 3

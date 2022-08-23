@@ -33,6 +33,7 @@ void checkBridgesDFS(vector<int> adj[], vector<int>& vis, vector<int>& tin, vect
 
     vis[node] = 1;
     tin[node] = low[node] = timer++;
+    // cout << "node : " << node << ", tin[node]: " << tin[node] << endl;
     for (auto it : adj[node]) {
         if (it == parent)   continue;
         else if (!vis[it]) {
@@ -43,7 +44,7 @@ void checkBridgesDFS(vector<int> adj[], vector<int>& vis, vector<int>& tin, vect
             }
         }
         else {
-            low[node] = min(low[node], low[it]);
+            low[node] = min(low[node], tin[it]);
         }
     }
 }
@@ -52,7 +53,7 @@ void checkBridges(vector<int> adj[], int n) {
     int timer = 1;
     vector<int> vis(n + 1, 0), tin(n + 1, 0), low(n + 1, 0);
     cout << "\nBridges:\n\n";
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i <= n; i++) {
         if (vis[i] == 0)
             checkBridgesDFS(adj, vis, tin, low, i, timer, -1);
     }

@@ -13,13 +13,8 @@ bool biPartiteDFS(vector<int> adj[], int start, vector<int>& color) {
     }
     return true;
 }
-// cout << "it: " << it << " ; " << "start: " << start << endl;
-// cout << "it-color: " << color[it] << " ; " << "start: " << color[start] << endl;
-// return biPartiteDFS(adj, it, color);
 
-// cout << "\n\nCAUGHTY!\n\n";
-// cout << it << " ; " << start << endl;
-// cout << color[it] << " ; " << color[start] << endl;
+
 bool checkBipartiteDFS(vector<int> adj[], int n) {
 
     vector<int> color(n + 1, -1);
