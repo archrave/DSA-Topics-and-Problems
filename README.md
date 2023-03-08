@@ -1,4 +1,3 @@
-# DSA Practice Problems and Algorithms
+# Data Structures and Algorithms - Complete Topics and Problems
 
-This repository simply consists of a lot of DSA problems, ranging from basic to advanced difficulty levels.
-Just for my own preperation in DSA.
+This repository simply consists of a lot of problems based on various topics in Data Structures and Algorithms, and important algorithms one should learn; all ranging from basic to advanced difficulty levels. I'm making this repository public, anyone studying DSA might get some help.
